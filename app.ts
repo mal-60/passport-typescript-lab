@@ -1,6 +1,19 @@
 import express from "express";
+// import here
+// declare global {
+//   namespace Express {
+//     interface User {
+//       id: number;
+//     }
+//   }
+// }
 import expressLayouts from "express-ejs-layouts";
-import session from "express-session";
+import session, { SessionData } from "express-session";
+declare module "express-session" {
+  interface SessionData {
+    messages: string[];
+  }
+}
 import path from "path";
 import passportMiddleware from './middleware/passportMiddleware';
 

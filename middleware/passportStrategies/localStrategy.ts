@@ -21,14 +21,24 @@ const localStrategy = new LocalStrategy(
 /*
 FIX ME (types) 😭
 */
-passport.serializeUser(function (user: any, done: any) {
+
+declare global {
+  namespace Express {
+    interface User {
+      id: number;
+    }
+  }
+}
+// stores the user's ID, username, etc
+passport.serializeUser(function (user: Express.User, done: (err: any, id?: number) => void) {
   done(null, user.id);
 });
 
 /*
 FIX ME (types) 😭
 */
-passport.deserializeUser(function (id: any, done: any) {
+// session authenticated, yielded information
+passport.deserializeUser(function (id: number, done: any) {
   let user = getUserById(id);
   if (user) {
     done(null, user);
