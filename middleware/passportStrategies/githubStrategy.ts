@@ -5,8 +5,8 @@ import { error } from 'console';
 const githubStrategy: GitHubStrategy = new GitHubStrategy(
     {
         clientID: "4804b1aa35d7bbd4c84c",
-        clientSecret: "42b2e128c2dcee112230f0ed5e3654662fc8b425",
-        callbackURL: "http://localhost:8000/auth/github/callback",
+        clientSecret: "0b22ae1ab35d3840bedbdb849aa5212f8b620a33",
+        callbackURL: "https://localhost:8000/auth/github/callback",
         passReqToCallback: true,
     },
     
