@@ -1,11 +1,10 @@
 import { Strategy as GitHubStrategy } from 'passport-github2';
 import { PassportStrategy } from '../../interfaces/index';
-import { error } from 'console';
 
 const githubStrategy: GitHubStrategy = new GitHubStrategy(
     {
         clientID: "4804b1aa35d7bbd4c84c",
-        clientSecret: "0b22ae1ab35d3840bedbdb849aa5212f8b620a33",
+        clientSecret: "",
         callbackURL: "https://localhost:8000/auth/github/callback",
         passReqToCallback: true,
     },
@@ -19,7 +18,7 @@ const githubStrategy: GitHubStrategy = new GitHubStrategy(
         // profile.username
         // { email, username } -> save into your database
         // done(null, { email, username })
-        done(error, profile);
+        done(null, profile);
     },
 );  
 
