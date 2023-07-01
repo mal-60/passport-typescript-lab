@@ -29,7 +29,7 @@ declare global {
     }
   }
 }
-// stores the user's ID, username, etc
+// stores the user's information
 passport.serializeUser(function (user: Express.User, done: (err: any, id?: number) => void) {
   done(null, user.id);
 });
@@ -37,8 +37,8 @@ passport.serializeUser(function (user: Express.User, done: (err: any, id?: numbe
 /*
 FIX ME (types) 😭
 */
-// session authenticated, yielded information
-passport.deserializeUser(function (id: number, done: any) {
+// yields information
+passport.deserializeUser(function (id: number, done: (error: any, user?: any) => void) {
   let user = getUserById(id);
   if (user) {
     done(null, user);

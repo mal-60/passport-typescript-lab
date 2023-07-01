@@ -3,6 +3,7 @@ import passport from 'passport';
 import { PassportStrategy } from '../interfaces';
 
 export default class PassportConfig {
+
     /* constructor(strategies: PassportStrategy[]) {
         this.addStrategies(strategies);
         }
@@ -26,3 +27,9 @@ export default class PassportConfig {
        });
    }
 }
+
+/* 
+My refactoring would sometimes allow the server to run. If I try to run the server for the first time, 
+it won't run. However, when I comment them out and then uncomment them back, the server would run fine 
+even if there's 'errors'. 
+*/
