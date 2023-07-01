@@ -9,11 +9,11 @@ import express from "express";
 // }
 import expressLayouts from "express-ejs-layouts";
 import session, { SessionData } from "express-session";
-declare module "express-session" {
-  interface SessionData {
-    messages: string[];
-  }
-}
+// declare module "express-session" {
+//   interface SessionData {
+//     messages: string[];
+//   }
+// }
 import path from "path";
 import passportMiddleware from './middleware/passportMiddleware';
 
@@ -35,6 +35,9 @@ app.use(
     },
   })
 );
+
+const flash = require('connect-flash');
+app.use(flash());
 
 import authRoute from "./routes/authRoute";
 import indexRoute from "./routes/indexRoute";
