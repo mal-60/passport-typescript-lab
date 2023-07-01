@@ -19,3 +19,10 @@ export const forwardAuthenticated = (req: Request, res: Response, next: NextFunc
     }
     res.redirect("/dashboard");
 }
+
+export const adminAuthenticated = (req: Request, res: Response, next: NextFunction) => {
+  if (!req.isAuthenticated() /* && req.role === "admin" */) {
+    return next();
+  }
+  res.redirect("/admin");
+}
